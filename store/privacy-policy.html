@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSP Inspector Privacy Policy</title>
+  <style>
+    :root { --bg: #ffffff; --text: #1d2125; --muted: #5f6b7a; --border: #e2e6eb; --accent: #1d4ed8; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #17191c; --text: #e6e8eb; --muted: #9aa1ab; --border: #343941; --accent: #7aa7ff; }
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+    h1 { font-size: 28px; margin: 0 0 4px; }
+    h2 { font-size: 19px; margin: 32px 0 8px; }
+    .updated { color: var(--muted); margin: 0 0 24px; }
+    .summary { border-left: 4px solid var(--accent); padding: 4px 16px; margin: 0 0 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+    code { font-size: 14px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>CSP Inspector Privacy Policy</h1>
+  <p class="updated">Last updated: October 26, 2026</p>
+
+  <p class="summary"><strong>In short:</strong> CSP Inspector does not collect, store on any server, sell or share any
+    data. Everything it reads stays in your browser and is deleted when you close the tab or the browser.</p>
+
+  <h2>What the extension does</h2>
+  <p>CSP Inspector is a developer tool. It shows the Content-Security-Policy (CSP) of the web page in your current tab,
+    lists requests that the policy blocked, and lets you test whether a URL would be allowed.</p>
+
+  <h2>Information the extension reads</h2>
+  <p>To do this, the extension reads the following, only on pages you visit:</p>
+  <ul>
+    <li>The <code>Content-Security-Policy</code> and <code>Content-Security-Policy-Report-Only</code> response headers of
+      the page, and any CSP <code>&lt;meta&gt;</code> tags in it.</li>
+    <li>CSP violation reports the browser raises on the page. These include the address of the page, the blocked
+      address, the script file and line that triggered the violation and, for blocked inline code, the short sample
+      (up to 40 characters) that the browser includes in the report.</li>
+    <li>The address of the current tab, to show which page the policy belongs to.</li>
+  </ul>
+  <p>Apart from that sample, it does not read page content, form input, passwords, cookies, browsing history or any
+    personal information.</p>
+
+  <h2>How the information is stored</h2>
+  <p>The headers and violation reports are kept in the browser's temporary session storage
+    (<code>chrome.storage.session</code>), separately for each tab. They are removed when the tab is closed, when the
+    page is fully reloaded, when you click <strong>Clear</strong>, or when the browser is closed. Nothing is written to
+    disk by the extension and nothing is synced to your Google account.</p>
+
+  <h2>Information sharing</h2>
+  <p>The extension has no server and makes no network requests of its own, except one: when you open the popup and the
+    policy was not captured during the page load (or you click <strong>Refetch</strong>), it requests the current page
+    again from that same website to read its headers. This request goes only to the site you are already visiting.</p>
+  <p>No data is sent to the developer or to any third party. There is no analytics, advertising or tracking.</p>
+
+  <h2>Permissions</h2>
+  <table>
+    <tr><th>Permission</th><th>Why it is needed</th></tr>
+    <tr><td><code>webRequest</code></td><td>Read the CSP response headers when a page loads.</td></tr>
+    <tr><td><code>scripting</code></td><td>Read CSP <code>&lt;meta&gt;</code> tags and re-request the page to read its headers when needed.</td></tr>
+    <tr><td><code>storage</code></td><td>Keep each tab's policy and violations in temporary session storage.</td></tr>
+    <tr><td>Access to all sites</td><td>Let you inspect the policy of whichever site you are working on.</td></tr>
+  </table>
+
+  <h2>Chrome Web Store user data policy</h2>
+  <p>The use of information received by this extension complies with the
+    <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy</a>,
+    including the Limited Use requirements.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version will be published at this address with a new "Last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:CONTACT_EMAIL">vinhtrau@gmail.com</a></p>
+</main>
+</body>
+</html>

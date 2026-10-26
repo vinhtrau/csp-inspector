@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSP Inspector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="title-row">
+      <strong>CSP Inspector</strong>
+      <span id="origin-note" class="muted"></span>
+      <span class="spacer"></span>
+      <button id="refetch" title="Fetch the current URL again and read its CSP headers">Refetch</button>
+    </div>
+    <div id="page" class="page-url"></div>
+    <nav>
+      <button class="tab active" data-view="policy">Policy</button>
+      <button class="tab" data-view="violations">Violations <span id="vio-count" class="count"></span></button>
+      <button class="tab" data-view="test">Test URL</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-policy" class="view">
+      <input id="filter" type="search" placeholder="Filter directives or sources (e.g. google, connect-src)">
+      <div id="policies"></div>
+    </section>
+
+    <section id="view-violations" class="view" hidden>
+      <div class="toolbar">
+        <label><input id="top-only" type="checkbox" checked> Top frame only</label>
+        <span class="spacer"></span>
+        <button id="copy-suggestions">Copy suggested additions</button>
+        <button id="clear-violations">Clear</button>
+      </div>
+      <div id="violations"></div>
+    </section>
+
+    <section id="view-test" class="view" hidden>
+      <form id="test-form" class="test-form">
+        <select id="test-directive"></select>
+        <input id="test-url" type="text" placeholder="https://example.com/path/file.js" required>
+        <button type="submit">Check</button>
+      </form>
+      <div id="test-results"></div>
+    </section>
+  </main>
+
+  <div id="toast" hidden></div>
+  <script src="csp.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+=== Name ===
+CSP Inspector
+
+=== Summary (max 132 characters) ===
+View, parse and debug a page's Content-Security-Policy: see every directive, catch blocked requests, and test URLs.
+
+=== Category ===
+Developer Tools
+
+=== Description ===
+CSP Inspector makes Content-Security-Policy readable. Open it on any page to see exactly what the policy allows, what it just blocked, and the one line you need to add to fix it.
+
+Built for developers rolling out or maintaining a CSP, especially when moving from report-only to enforced, where every missing host turns into a broken feature.
+
+POLICY VIEW
+• Shows every policy on the page: the enforced header, the report-only header and <meta> tags, side by side.
+• One row per directive, with sources colour-coded: keywords, hosts, schemes, nonces and hashes, and risky values like 'unsafe-inline', 'unsafe-eval' and *.
+• Warnings for common problems: inline scripts or eval allowed, overly broad script sources, duplicate or misspelled directives, object-src not 'none', missing base-uri, frame-ancestors or reporting endpoint.
+• Shows which unset directives fall back to default-src or child-src.
+• Filter box to find every place a host is allowed (e.g. type "google").
+• Click any source to copy it, or copy the whole policy raw or one directive per line.
+
+VIOLATIONS
+• Collects CSP violations from the page as they happen, with a count on the toolbar icon.
+• Duplicates are grouped with a hit count.
+• Each violation shows the directive, the blocked URL, the file and line that caused it, and the exact source to add, using the directive that actually applies (e.g. a script-src-elem violation is fixed in script-src when script-src-elem isn't set).
+• Separates blocked requests from report-only ones.
+• Hides violations raised inside iframes by default, such as a third-party payment or video frame. Those come from the frame's own policy, not yours, and are a common source of confusion.
+• "Copy suggested additions" gives you every fix at once, one line per directive.
+
+TEST A URL
+• Check whether any URL would be allowed for a directive before you ship.
+• Follows the CSP rules browsers use: fallbacks, 'self', wildcard subdomains, ports, paths, scheme upgrades (http to https, ws to wss), data: and blob:.
+• Shows which source matched, or what to add if it's blocked.
+
+PRIVACY
+CSP Inspector has no server, no analytics and no tracking. The headers and violations it reads stay in your browser's temporary session storage for that tab and are cleared when the page reloads, the tab closes or the browser closes. Nothing is sent to the developer or any third party.
+
+WHY IT NEEDS ACCESS TO ALL SITES
+To read the CSP headers and violations of whichever site you are working on. It does not read page content, form data, cookies or browsing history.
+
+=== Single purpose (Privacy tab) ===
+Inspect and debug the Content-Security-Policy of the current page: display its directives, list the violations it causes, and test URLs against it.
+
+=== Permission justifications (Privacy tab) ===
+webRequest:
+Reads the Content-Security-Policy and Content-Security-Policy-Report-Only response headers of top-level page loads so they can be displayed in the popup. Requests are only observed, never blocked or modified.
+
+scripting:
+When the policy was not captured during the page load (for example the page came from a service worker cache), injects a small script into the current tab to read CSP <meta> tags and re-request the same page to read its headers.
+
+storage:
+Keeps each tab's captured policy and violation list in chrome.storage.session (in memory only) so the popup can show them. Cleared on page reload, tab close or browser close.
+
+Host permission (<all_urls>):
+CSP Inspector is a developer tool for whichever site the user is working on, so it needs to read response headers and CSP violation events on any site. A content script only listens for the browser's securitypolicyviolation event; it does not read page content.
+
+Remote code:
+No. All code is included in the package.
+
+=== Data usage (Privacy tab) ===
+Data collected: Website content — only the CSP headers and CSP violation reports of the current page, kept locally. (If you prefer, select none: nothing leaves the browser.)
+Certify: not sold to third parties; not used for purposes unrelated to the single purpose; not used for creditworthiness or lending.
+
+=== Privacy policy URL ===
+<your hosted URL of store/privacy-policy.html>

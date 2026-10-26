@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield -->
+  <path d="M64 6 L112 24 V60 C112 90 92 112 64 122 C36 112 16 90 16 60 V24 Z"
+        fill="url(#shield)" stroke="#1e3a8a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Policy lines -->
+  <rect x="34" y="38" width="44" height="8" rx="4" fill="#ffffff" opacity=".95"/>
+  <rect x="34" y="54" width="30" height="8" rx="4" fill="#ffffff" opacity=".75"/>
+  <rect x="34" y="70" width="22" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+  <!-- Magnifier -->
+  <circle cx="78" cy="76" r="17" fill="#1e3a8a" fill-opacity=".35" stroke="#ffffff" stroke-width="8"/>
+  <line x1="91" y1="89" x2="106" y2="104" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+</svg>
