@@ -1,0 +1,18 @@
+# Packaged builds (re-create with zip before each store upload)
+dist/
+*.zip
+*.crx
+
+# Private key Chrome generates when packing a .crx; never commit it
+*.pem
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs and local tooling
+*.log
+node_modules/
